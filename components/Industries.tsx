@@ -36,7 +36,7 @@ const industries = [
   },
 
   {
-    image: "/images/construction.jpg",
+    image: "/images/Construction.jpg",
     title: "Construction",
     description:
       "Reliable supply solutions for construction companies and large-scale developments.",
