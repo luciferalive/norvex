@@ -1,44 +1,45 @@
+import Image from "next/image";
 const industries = [
   {
+    image: "/images/oil-gas.jpg",
     title: "Oil & Gas",
     description:
       "Supporting upstream, downstream, and energy projects with reliable industrial procurement solutions.",
-    icon: "🛢️",
   },
 
   {
+    image: "/images/aviation.jpg",
     title: "Aviation",
     description:
       "Providing sourcing support for aviation components, tools, equipment, and technical requirements.",
-    icon: "✈️",
   },
 
   {
+    image: "/images/marine.jpg",
     title: "Marine",
     description:
       "Supplying marine equipment, consumables, and solutions for offshore operations.",
-    icon: "🚢",
   },
 
   {
+    image: "/images/epc.jpg",
     title: "EPC Projects",
     description:
       "Complete procurement assistance for engineering, construction, and infrastructure projects.",
-    icon: "🏗️",
   },
 
   {
+    image: "/images/manufacturing.jpg",
     title: "Manufacturing",
     description:
       "Helping manufacturers source industrial materials and specialized components.",
-    icon: "⚙️",
   },
 
   {
+    image: "/images/construction.jpg",
     title: "Construction",
     description:
       "Reliable supply solutions for construction companies and large-scale developments.",
-    icon: "🏢",
   },
 ];
 
@@ -108,16 +109,13 @@ export default function Industries() {
             >
 
 
-              <div
-                className="
-                text-5xl
-                mb-6
-                group-hover:scale-110
-                transition
-                "
-              >
-                {industry.icon}
-              </div>
+             <Image
+  src={industry.image}
+  alt={industry.title}
+  width={500}
+  height={300}
+  className="w-full h-48 object-cover rounded-xl mb-6 group-hover:scale-105 transition duration-300"
+/>
 
 
 
