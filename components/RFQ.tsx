@@ -13,19 +13,18 @@ export default function RFQ() {
 
       <div className="max-w-6xl mx-auto">
 
-
-        <div className="
+        <div
+          className="
           bg-[#111]
           border
           border-yellow-500/20
           rounded-3xl
           p-8
           md:p-12
-        ">
-
+          "
+        >
 
           <div className="text-center mb-12">
-
 
             <p className="
               text-yellow-400
@@ -56,21 +55,51 @@ export default function RFQ() {
               will help you source the right solution.
             </p>
 
-
           </div>
 
 
 
-          <form className="
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            className="
             grid
             md:grid-cols-2
             gap-6
-          ">
+            "
+          >
+
+            {/* Web3Forms Settings */}
+
+            <input
+              type="hidden"
+              name="access_key"
+              value="27f6095f-9d7e-46ab-acd2-d739955ddf27"
+            />
+
+
+            <input
+              type="hidden"
+              name="subject"
+              value="New NORVEX Website RFQ"
+            />
+
+
+            <input
+              type="hidden"
+              name="from_name"
+              value="NORVEX Website"
+            />
+
+
+            {/* Customer Details */}
 
 
             <input
               type="text"
+              name="name"
               placeholder="Your Name"
+              required
               className="
               bg-black
               border
@@ -84,8 +113,10 @@ export default function RFQ() {
             />
 
 
+
             <input
               type="text"
+              name="company"
               placeholder="Company Name"
               className="
               bg-black
@@ -100,9 +131,12 @@ export default function RFQ() {
             />
 
 
+
             <input
               type="email"
+              name="email"
               placeholder="Email Address"
+              required
               className="
               bg-black
               border
@@ -116,8 +150,10 @@ export default function RFQ() {
             />
 
 
+
             <input
               type="text"
+              name="phone"
               placeholder="Phone Number"
               className="
               bg-black
@@ -134,8 +170,10 @@ export default function RFQ() {
 
 
             <textarea
+              name="message"
               placeholder="Describe your requirement..."
               rows={5}
+              required
               className="
               md:col-span-2
               bg-black
@@ -174,9 +212,7 @@ export default function RFQ() {
 
         </div>
 
-
       </div>
-
 
     </section>
 
