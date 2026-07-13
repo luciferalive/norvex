@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://norvex-tawny.vercel.app/
+Host: https://norvex-tawny.vercel.app
 
 # Sitemaps
 Sitemap: https://norvex-tawny.vercel.app/sitemap.xml
