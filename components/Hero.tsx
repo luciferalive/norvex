@@ -1,3 +1,5 @@
+import AnimatedGlobe from "@/components/AnimatedGlobe";
+import WorldNetwork from "./WorldNetwork";
 export default function Hero() {
   return (
     <section
@@ -54,43 +56,8 @@ export default function Hero() {
 
 
 
-        <div className="hidden md:flex justify-center relative">
-
-
-  <div className="absolute w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse">
-  </div>
-
-
-  <div className="relative w-96 h-96 rounded-full border border-yellow-500/30 flex items-center justify-center backdrop-blur">
-
-
-    <div className="absolute top-10 left-10 bg-[#151515] border border-yellow-500/30 px-5 py-3 rounded-xl text-sm">
-      OEM Sourcing
-    </div>
-
-
-    <div className="absolute bottom-10 right-10 bg-[#151515] border border-yellow-500/30 px-5 py-3 rounded-xl text-sm">
-      Global Supply
-    </div>
-
-
-    <div className="absolute top-1/2 left-0 bg-[#151515] border border-yellow-500/30 px-5 py-3 rounded-xl text-sm">
-      Industrial Solutions
-    </div>
-
-
-    <div className="w-72 h-72 rounded-full bg-yellow-500/10 flex items-center justify-center">
-
-      <span className="text-yellow-400 text-6xl font-bold">
-        NORVEX
-      </span>
-
-    </div>
-
-
-  </div>
-
-
+        <div className="hidden md:flex justify-center items-center">
+  <WorldNetwork />
 </div>
 
 
