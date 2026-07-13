@@ -23,7 +23,7 @@ const reasons = [
   },
 
   {
-    image: "/images/Construction.jpg",
+    image: "/images/TechnicalProcurement.jpg",
     title: "Technical Procurement",
     description:
       "Our team understands technical requirements and helps source the right solutions.",
