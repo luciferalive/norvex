@@ -30,7 +30,10 @@ const contactDetails = [
 
 export default function Contact() {
   return (
-    <section className="py-20 bg-black text-white">
+    <section
+  id="contact"
+  className="bg-black text-white py-24"
+>
       <div className="max-w-7xl mx-auto px-6">
 
         <h2 className="text-4xl font-bold text-yellow-500 mb-10">
