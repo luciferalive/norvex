@@ -1,128 +1,107 @@
+import Link from "next/link";
+import Image from "next/image";
+
 export default function Footer() {
   return (
+    <footer className="bg-[#050505] border-t border-yellow-500/20 text-white">
 
-    <footer
-      className="
-      bg-black
-      border-t
-      border-yellow-500/20
-      text-white
-      py-12
-      px-6
-      "
-    >
+      <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-12">
 
-      <div className="
-      max-w-7xl
-      mx-auto
-      grid
-      md:grid-cols-3
-      gap-10
-      ">
-
+        {/* Company */}
 
         <div>
 
-          <h2 className="
-          text-3xl
-          font-bold
-          text-yellow-400
-          ">
+          <Image
+            src="/logo.png"
+            alt="NORVEX"
+            width={70}
+            height={70}
+          />
+
+          <h2 className="text-2xl font-bold mt-4">
             NORVEX
           </h2>
 
-
-          <p className="
-          text-gray-400
-          mt-4
-          leading-relaxed
-          ">
-            Network Of Resources, Ventures & Exports.
-            Providing global procurement and sourcing
-            solutions for industries worldwide.
+          <p className="text-gray-400 mt-4 leading-8">
+            Global Procurement, OEM Sourcing,
+            Industrial Supply and Project
+            Procurement Solutions.
           </p>
 
         </div>
 
-
-
-        <div>
-
-          <h3 className="
-          font-bold
-          text-xl
-          mb-4
-          ">
-            Quick Links
-          </h3>
-
-
-          <div className="
-          space-y-2
-          text-gray-400
-          ">
-
-            <p>Home</p>
-            <p>Services</p>
-            <p>Industries</p>
-            <p>Request Quote</p>
-
-          </div>
-
-
-        </div>
-
-
-
+        {/* Company */}
 
         <div>
 
-          <h3 className="
-          font-bold
-          text-xl
-          mb-4
-          ">
-            Industries
+          <h3 className="font-bold text-xl mb-6">
+            Company
           </h3>
 
+          <div className="space-y-4">
 
-          <div className="
-          space-y-2
-          text-gray-400
-          ">
+            <Link href="/">Home</Link><br/>
 
-            <p>Oil & Gas</p>
-            <p>Aviation</p>
-            <p>Marine</p>
-            <p>EPC Projects</p>
+            <Link href="/about">About</Link><br/>
+
+            <Link href="/services">Services</Link><br/>
+
+            <Link href="/industries">Industries</Link>
 
           </div>
 
+        </div>
+
+        {/* Resources */}
+
+        <div>
+
+          <h3 className="font-bold text-xl mb-6">
+            Resources
+          </h3>
+
+          <div className="space-y-4">
+
+            <Link href="/blog">Blog</Link><br/>
+
+            <Link href="/rfq">Request Quote</Link><br/>
+
+            <Link href="/contact">Contact</Link>
+
+          </div>
 
         </div>
 
+        {/* Contact */}
 
+        <div>
+
+          <h3 className="font-bold text-xl mb-6">
+            Contact
+          </h3>
+
+          <p className="text-gray-400">
+            sales@norvex.com
+          </p>
+
+          <p className="text-gray-400 mt-3">
+            +91 97400 78445
+          </p>
+
+          <p className="text-gray-400 mt-3">
+            India
+          </p>
+
+        </div>
 
       </div>
 
-
-
-      <div className="
-      text-center
-      border-t
-      border-yellow-500/20
-      mt-10
-      pt-6
-      text-gray-500
-      text-sm
-      ">
+      <div className="border-t border-yellow-500/20 py-6 text-center text-gray-500">
 
         © {new Date().getFullYear()} NORVEX. All Rights Reserved.
 
       </div>
 
-
     </footer>
-
   );
 }
