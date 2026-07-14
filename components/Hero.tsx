@@ -4,95 +4,81 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen bg-black text-white flex items-center px-6 relative overflow-hidden"
+      className="relative overflow-hidden bg-black text-white pt-28 pb-16 lg:min-h-screen lg:flex lg:items-center"
     >
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
 
         {/* LEFT */}
+        <div className="text-center lg:text-left">
 
-        <div>
-
-          <p className="text-yellow-400 uppercase tracking-[0.35em] font-semibold mb-5">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-yellow-400 sm:text-sm">
             GLOBAL PROCUREMENT SOLUTIONS
           </p>
 
-          <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight">
-
+          <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl lg:text-7xl">
             Connecting
-
             <br />
-
             <span className="text-yellow-400">
               Global Industries
             </span>
-
             <br />
-
             With Trusted Suppliers
-
           </h1>
 
-          <p className="text-gray-400 text-xl leading-9 mt-8 max-w-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg lg:mx-0 lg:text-xl">
             NORVEX delivers industrial procurement, OEM sourcing,
             project supply, MRO procurement and global supplier
             management for Oil & Gas, Aviation, Marine,
             EPC and Manufacturing industries.
           </p>
 
-          <div className="flex flex-wrap gap-5 mt-10">
+          {/* Buttons */}
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
 
             <a
               href="#rfq"
-              className="bg-yellow-400 text-black px-8 py-4 rounded-full font-bold hover:scale-105 transition"
+              className="rounded-full bg-yellow-400 px-8 py-4 text-center font-bold text-black transition duration-300 hover:scale-105 hover:bg-yellow-300"
             >
               Request Quote
             </a>
 
             <a
               href="/services"
-              className="border border-yellow-400 px-8 py-4 rounded-full hover:bg-yellow-400 hover:text-black transition"
+              className="rounded-full border border-yellow-400 px-8 py-4 text-center transition duration-300 hover:bg-yellow-400 hover:text-black"
             >
               Explore Services
             </a>
 
           </div>
 
-          <div className="grid grid-cols-3 gap-6 mt-14">
+          {/* Stats */}
+          <div className="mt-12 grid grid-cols-3 gap-5 text-center lg:text-left">
 
             <div>
-
-              <h2 className="text-3xl font-bold text-yellow-400">
+              <h2 className="text-3xl font-bold text-yellow-400 sm:text-4xl">
                 35+
               </h2>
-
-              <p className="text-gray-500 text-sm">
+              <p className="mt-1 text-sm text-gray-500">
                 Countries
               </p>
-
             </div>
 
             <div>
-
-              <h2 className="text-3xl font-bold text-yellow-400">
+              <h2 className="text-3xl font-bold text-yellow-400 sm:text-4xl">
                 500+
               </h2>
-
-              <p className="text-gray-500 text-sm">
+              <p className="mt-1 text-sm text-gray-500">
                 Suppliers
               </p>
-
             </div>
 
             <div>
-
-              <h2 className="text-3xl font-bold text-yellow-400">
+              <h2 className="text-3xl font-bold text-yellow-400 sm:text-4xl">
                 OEM
               </h2>
-
-              <p className="text-gray-500 text-sm">
+              <p className="mt-1 text-sm text-gray-500">
                 Network
               </p>
-
             </div>
 
           </div>
@@ -100,9 +86,10 @@ export default function Hero() {
         </div>
 
         {/* RIGHT */}
-
-        <div className="hidden lg:flex justify-center items-center">
-          <WorldNetwork />
+        <div className="flex justify-center">
+          <div className="scale-[0.72] sm:scale-90 lg:scale-100 origin-center">
+            <WorldNetwork />
+          </div>
         </div>
 
       </div>

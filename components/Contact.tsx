@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 const contactDetails = [
   {
     icon: "📧",
@@ -7,9 +9,8 @@ const contactDetails = [
       "norvex.in@outlook.com",
     ],
     link: "mailto:sales.norvex@outlook.com",
-    action: "Send Email →",
+    action: "Send Email",
   },
-
   {
     icon: "📞",
     title: "Call / WhatsApp",
@@ -18,142 +19,133 @@ const contactDetails = [
       "Available for global inquiries",
     ],
     link: "https://wa.me/919740078445",
-    action: "Chat on WhatsApp →",
+    action: "Chat on WhatsApp",
   },
-
   {
     icon: "📍",
     title: "Our Location",
     details: [
       "India",
-      "Serving clients worldwide",
+      "Serving Clients Worldwide",
     ],
     link: null,
     action: null,
   },
 ];
 
-
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-black text-white py-24 scroll-mt-24"
+      className="bg-black text-white py-20 px-5 sm:px-8 lg:px-6 scroll-mt-24"
     >
+      <Reveal>
+        <div className="max-w-7xl mx-auto">
 
-      <div className="max-w-7xl mx-auto px-6">
+          {/* Heading */}
+          <div className="max-w-3xl mx-auto text-center mb-14">
 
+            <p className="text-yellow-400 uppercase tracking-[0.35em] text-xs sm:text-sm font-semibold">
+              Get In Touch
+            </p>
 
-        <h2 className="text-4xl font-bold text-yellow-500 mb-10">
-          Contact Us
-        </h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4">
+              Let's Discuss Your Requirements
+            </h2>
 
+            <p className="text-gray-400 mt-5 text-base sm:text-lg leading-8">
+              Whether you need OEM sourcing, project procurement,
+              industrial supplies or technical sourcing support,
+              NORVEX is ready to help.
+            </p>
 
+          </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+          {/* Contact Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
+            {contactDetails.map((item) => {
+              const card = (
+                <div
+                  className="
+                    group
+                    h-full
+                    rounded-3xl
+                    border
+                    border-yellow-500/20
+                    bg-[#111]
+                    p-7
+                    transition-all
+                    duration-300
+                    hover:-translate-y-2
+                    hover:border-yellow-400
+                    hover:shadow-[0_15px_40px_rgba(250,204,21,0.12)]
+                  "
+                >
+                  <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/10 text-4xl mb-6">
+                    {item.icon}
+                  </div>
 
-          {contactDetails.map((item) => (
+                  <h3 className="text-2xl font-bold mb-4">
+                    {item.title}
+                  </h3>
 
-            item.link ? (
+                  <div className="space-y-2">
 
-              <a
-                key={item.title}
-                href={item.link}
-                target={item.title.includes("WhatsApp") ? "_blank" : "_self"}
-                className="
-                border
-                border-yellow-500/20
-                rounded-xl
-                p-6
-                bg-black
-                hover:border-yellow-400
-                hover:-translate-y-2
-                transition
-                duration-300
-                cursor-pointer
-                "
-              >
+                    {item.details.map((detail) => (
+                      <p
+                        key={detail}
+                        className="text-gray-400 leading-7 break-words"
+                      >
+                        {detail}
+                      </p>
+                    ))}
 
-                <div className="text-4xl mb-4">
-                  {item.icon}
+                  </div>
+
+                  {item.action && (
+                    <div className="mt-8">
+                      <span
+                        className="
+                          inline-flex
+                          items-center
+                          rounded-full
+                          bg-yellow-400
+                          px-5
+                          py-2.5
+                          text-black
+                          font-semibold
+                          transition
+                          group-hover:bg-yellow-300
+                        "
+                      >
+                        {item.action} →
+                      </span>
+                    </div>
+                  )}
                 </div>
+              );
 
-
-                <h3 className="text-xl font-semibold mb-3">
-                  {item.title}
-                </h3>
-
-
-                {item.details.map((detail) => (
-
-                  <p
-                    key={detail}
-                    className="text-gray-300"
-                  >
-                    {detail}
-                  </p>
-
-                ))}
-
-
-                <p className="text-yellow-400 text-sm mt-5 font-semibold">
-                  {item.action}
-                </p>
-
-
-              </a>
-
-            ) : (
-
-              <div
-                key={item.title}
-                className="
-                border
-                border-yellow-500/20
-                rounded-xl
-                p-6
-                bg-black
-                hover:border-yellow-400
-                hover:-translate-y-2
-                transition
-                duration-300
-                "
-              >
-
-                <div className="text-4xl mb-4">
-                  {item.icon}
+              return item.link ? (
+                <a
+                  key={item.title}
+                  href={item.link}
+                  target={item.title.includes("WhatsApp") ? "_blank" : "_self"}
+                  rel="noopener noreferrer"
+                >
+                  {card}
+                </a>
+              ) : (
+                <div key={item.title}>
+                  {card}
                 </div>
+              );
+            })}
 
-
-                <h3 className="text-xl font-semibold mb-3">
-                  {item.title}
-                </h3>
-
-
-                {item.details.map((detail) => (
-
-                  <p
-                    key={detail}
-                    className="text-gray-300"
-                  >
-                    {detail}
-                  </p>
-
-                ))}
-
-              </div>
-
-            )
-
-          ))}
-
+          </div>
 
         </div>
-
-
-      </div>
-
+      </Reveal>
     </section>
   );
 }

@@ -1,104 +1,163 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer className="bg-[#050505] border-t border-yellow-500/20 text-white">
 
-      <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-6 py-16">
 
-        {/* Company */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
 
-        <div>
+          {/* Company */}
+          <div>
 
-          <Image
-            src="/logo.png"
-            alt="NORVEX"
-            width={70}
-            height={70}
-          />
+            <Image
+              src="/logo.png"
+              alt="NORVEX Logo"
+              width={70}
+              height={70}
+              className="mb-5"
+            />
 
-          <h2 className="text-2xl font-bold mt-4">
-            NORVEX
-          </h2>
+            <h2 className="text-2xl font-bold">
+              NORVEX
+            </h2>
 
-          <p className="text-gray-400 mt-4 leading-8">
-            Global Procurement, OEM Sourcing,
-            Industrial Supply and Project
-            Procurement Solutions.
-          </p>
+            <p className="mt-4 leading-8 text-gray-400">
+              Global Procurement, OEM Sourcing,
+              Industrial Supply and Project
+              Procurement Solutions connecting
+              industries with trusted suppliers
+              worldwide.
+            </p>
 
-        </div>
+          </div>
 
-        {/* Company */}
+          {/* Company */}
+          <div>
 
-        <div>
+            <h3 className="mb-6 text-xl font-bold">
+              Company
+            </h3>
 
-          <h3 className="font-bold text-xl mb-6">
-            Company
-          </h3>
+            <ul className="space-y-4">
 
-          <div className="space-y-4">
+              <li>
+                <Link href="/" className="text-gray-400 hover:text-yellow-400 transition">
+                  Home
+                </Link>
+              </li>
 
-            <Link href="/">Home</Link><br/>
+              <li>
+                <Link href="/about" className="text-gray-400 hover:text-yellow-400 transition">
+                  About
+                </Link>
+              </li>
 
-            <Link href="/about">About</Link><br/>
+              <li>
+                <Link href="/services" className="text-gray-400 hover:text-yellow-400 transition">
+                  Services
+                </Link>
+              </li>
 
-            <Link href="/services">Services</Link><br/>
+              <li>
+                <Link href="/industries" className="text-gray-400 hover:text-yellow-400 transition">
+                  Industries
+                </Link>
+              </li>
 
-            <Link href="/industries">Industries</Link>
+            </ul>
+
+          </div>
+
+          {/* Resources */}
+          <div>
+
+            <h3 className="mb-6 text-xl font-bold">
+              Resources
+            </h3>
+
+            <ul className="space-y-4">
+
+              <li>
+                <Link href="/blog" className="text-gray-400 hover:text-yellow-400 transition">
+                  Blog
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/rfq" className="text-gray-400 hover:text-yellow-400 transition">
+                  Request Quote
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/contact" className="text-gray-400 hover:text-yellow-400 transition">
+                  Contact
+                </Link>
+              </li>
+
+            </ul>
+
+          </div>
+
+          {/* Contact */}
+          <div>
+
+            <h3 className="mb-6 text-xl font-bold">
+              Contact
+            </h3>
+
+            <div className="space-y-4">
+
+              <a
+                href="mailto:sales.norvex@outlook.com"
+                className="block text-gray-400 hover:text-yellow-400 transition break-all"
+              >
+                sales.norvex@outlook.com
+              </a>
+
+              <a
+                href="mailto:norvex.in@outlook.com"
+                className="block text-gray-400 hover:text-yellow-400 transition break-all"
+              >
+                norvex.in@outlook.com
+              </a>
+
+              <a
+                href="tel:+919740078445"
+                className="block text-gray-400 hover:text-yellow-400 transition"
+              >
+                +91 97400 78445
+              </a>
+
+              <p className="text-gray-400">
+                India
+              </p>
+
+            </div>
 
           </div>
 
         </div>
 
-        {/* Resources */}
+        {/* Bottom */}
 
-        <div>
+        <div className="mt-14 flex flex-col gap-5 border-t border-yellow-500/20 pt-8 text-center lg:flex-row lg:items-center lg:justify-between">
 
-          <h3 className="font-bold text-xl mb-6">
-            Resources
-          </h3>
+          <p className="text-sm text-gray-500">
+            © {new Date().getFullYear()} NORVEX. All Rights Reserved.
+          </p>
 
-          <div className="space-y-4">
-
-            <Link href="/blog">Blog</Link><br/>
-
-            <Link href="/rfq">Request Quote</Link><br/>
-
-            <Link href="/contact">Contact</Link>
-
-          </div>
+          <a
+            href="#home"
+            className="inline-flex items-center justify-center rounded-full border border-yellow-500/30 px-5 py-2 text-sm text-gray-300 transition hover:border-yellow-400 hover:text-yellow-400"
+          >
+            ↑ Back to Top
+          </a>
 
         </div>
-
-        {/* Contact */}
-
-        <div>
-
-          <h3 className="font-bold text-xl mb-6">
-            Contact
-          </h3>
-
-          <p className="text-gray-400">
-            sales@norvex.com
-          </p>
-
-          <p className="text-gray-400 mt-3">
-            +91 97400 78445
-          </p>
-
-          <p className="text-gray-400 mt-3">
-            India
-          </p>
-
-        </div>
-
-      </div>
-
-      <div className="border-t border-yellow-500/20 py-6 text-center text-gray-500">
-
-        © {new Date().getFullYear()} NORVEX. All Rights Reserved.
 
       </div>
 

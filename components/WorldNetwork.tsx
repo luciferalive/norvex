@@ -12,121 +12,68 @@ const nodes = [
 
 export default function WorldNetwork() {
   return (
-    <div className="relative w-[650px] h-[650px] flex items-center justify-center overflow-hidden">
+    <div className="relative flex aspect-square w-full max-w-[520px] items-center justify-center overflow-hidden">
 
-      {/* Background Glow */}
+      {/* Glow */}
+      <div className="absolute h-[80%] w-[80%] rounded-full bg-yellow-500/10 blur-3xl" />
 
-      <div className="absolute w-[560px] h-[560px] rounded-full bg-yellow-500/10 blur-3xl" />
-
-      {/* Connection Lines */}
-
+      {/* Lines */}
       <svg
-        className="absolute inset-0 w-full h-full"
         viewBox="0 0 650 650"
+        className="absolute inset-0 h-full w-full"
       >
-
-        <line
-          x1="120"
-          y1="220"
-          x2="325"
-          y2="325"
-          stroke="#facc15"
-          strokeOpacity="0.35"
-          strokeWidth="2"
-        />
-
-        <line
-          x1="315"
-          y1="155"
-          x2="325"
-          y2="325"
-          stroke="#facc15"
-          strokeOpacity="0.35"
-          strokeWidth="2"
-        />
-
-        <line
-          x1="380"
-          y1="250"
-          x2="325"
-          y2="325"
-          stroke="#facc15"
-          strokeOpacity="0.35"
-          strokeWidth="2"
-        />
-
-        <line
-          x1="430"
-          y1="320"
-          x2="325"
-          y2="325"
-          stroke="#facc15"
-          strokeOpacity="0.35"
-          strokeWidth="2"
-        />
-
-        <line
-          x1="500"
-          y1="390"
-          x2="325"
-          y2="325"
-          stroke="#facc15"
-          strokeOpacity="0.35"
-          strokeWidth="2"
-        />
-
+        <line x1="120" y1="220" x2="325" y2="325" stroke="#facc15" strokeOpacity=".35" strokeWidth="2"/>
+        <line x1="315" y1="155" x2="325" y2="325" stroke="#facc15" strokeOpacity=".35" strokeWidth="2"/>
+        <line x1="380" y1="250" x2="325" y2="325" stroke="#facc15" strokeOpacity=".35" strokeWidth="2"/>
+        <line x1="430" y1="320" x2="325" y2="325" stroke="#facc15" strokeOpacity=".35" strokeWidth="2"/>
+        <line x1="500" y1="390" x2="325" y2="325" stroke="#facc15" strokeOpacity=".35" strokeWidth="2"/>
       </svg>
 
-      {/* Animated Shipment Dot */}
-
+      {/* Shipment Dot */}
       <motion.div
         animate={{
-          x: [-205, 0, 105, 175],
-          y: [-105, 0, 70, 120],
+          x: [-160, 0, 80, 140],
+          y: [-80, 0, 55, 95],
         }}
         transition={{
-          duration: 6,
           repeat: Infinity,
+          duration: 6,
           ease: "linear",
         }}
-        className="absolute z-30 w-4 h-4 rounded-full bg-yellow-400 shadow-[0_0_25px_#facc15]"
+        className="absolute z-30 h-3 w-3 rounded-full bg-yellow-400 shadow-[0_0_20px_#facc15]"
       />
 
       {/* Center Card */}
-
       <motion.div
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 4, repeat: Infinity }}
-        className="absolute z-20 bg-[#111]/95 backdrop-blur-xl border border-yellow-500/30 rounded-3xl px-10 py-8 shadow-2xl"
+        animate={{ y: [0, -6, 0] }}
+        transition={{ repeat: Infinity, duration: 4 }}
+        className="absolute z-20 w-[70%] rounded-3xl border border-yellow-500/30 bg-[#111]/95 px-5 py-5 text-center backdrop-blur-xl sm:px-8 sm:py-7"
       >
-
-        <p className="text-yellow-400 uppercase tracking-widest text-sm">
+        <p className="text-[10px] uppercase tracking-[0.35em] text-yellow-400 sm:text-xs">
           Global Procurement
         </p>
 
-        <h2 className="text-4xl font-bold mt-3 text-white">
+        <h2 className="mt-2 text-2xl font-bold text-white sm:text-4xl">
           NORVEX
         </h2>
 
-        <p className="text-gray-400 mt-4 max-w-xs">
+        <p className="mt-3 text-xs leading-6 text-gray-400 sm:text-sm">
           Connecting industries with trusted suppliers worldwide.
         </p>
-
       </motion.div>
 
-      {/* Country Cards */}
-
+      {/* Countries */}
       {nodes.map((node, index) => (
         <motion.div
           key={node.name}
           animate={{
             opacity: [0.6, 1, 0.6],
-            y: [0, -6, 0],
+            y: [0, -4, 0],
           }}
           transition={{
-            duration: 3,
             repeat: Infinity,
-            delay: index * 0.4,
+            duration: 3,
+            delay: index * 0.3,
           }}
           className="absolute z-10"
           style={{
@@ -134,72 +81,43 @@ export default function WorldNetwork() {
             top: node.y,
           }}
         >
-          <div className="bg-[#111]/90 backdrop-blur-xl border border-yellow-500/20 rounded-xl px-4 py-2 shadow-lg">
+          <div className="rounded-full border border-yellow-500/20 bg-[#111]/90 px-2 py-1 backdrop-blur-xl sm:px-4 sm:py-2">
 
             <div className="flex items-center gap-2">
 
-              <div className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
+              <div className="h-2 w-2 rounded-full bg-yellow-400" />
 
-              <span className="text-white text-sm font-medium">
+              <span className="text-[10px] font-medium text-white sm:text-sm">
                 {node.name}
               </span>
 
             </div>
 
           </div>
-
         </motion.div>
       ))}
 
-      {/* KPI Card */}
-
-      <motion.div
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 4, repeat: Infinity }}
-        className="absolute top-8 right-0 bg-[#111]/90 backdrop-blur-xl border border-yellow-500/20 rounded-2xl p-5 shadow-xl"
-      >
-
-        <p className="text-gray-400 text-sm">
-          Global Suppliers
+      {/* KPI Top */}
+      <div className="absolute right-2 top-3 rounded-xl border border-yellow-500/20 bg-[#111]/90 px-3 py-2 backdrop-blur-xl sm:right-0 sm:top-6 sm:px-5 sm:py-4">
+        <p className="text-[10px] text-gray-400 sm:text-xs">
+          Suppliers
         </p>
 
-        <h3 className="text-3xl font-bold text-yellow-400 mt-2">
+        <h3 className="text-lg font-bold text-yellow-400 sm:text-3xl">
           500+
         </h3>
+      </div>
 
-      </motion.div>
-
-      <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 5, repeat: Infinity }}
-        className="absolute bottom-8 left-0 bg-[#111]/90 backdrop-blur-xl border border-yellow-500/20 rounded-2xl p-5 shadow-xl"
-      >
-
-        <p className="text-gray-400 text-sm">
-          Countries Served
+      {/* KPI Bottom */}
+      <div className="absolute bottom-3 left-2 rounded-xl border border-yellow-500/20 bg-[#111]/90 px-3 py-2 backdrop-blur-xl sm:bottom-6 sm:left-0 sm:px-5 sm:py-4">
+        <p className="text-[10px] text-gray-400 sm:text-xs">
+          Countries
         </p>
 
-        <h3 className="text-3xl font-bold text-yellow-400 mt-2">
+        <h3 className="text-lg font-bold text-yellow-400 sm:text-3xl">
           35+
         </h3>
-
-      </motion.div>
-
-      <motion.div
-        animate={{ x: [0, 6, 0] }}
-        transition={{ duration: 3.5, repeat: Infinity }}
-        className="absolute top-1/2 -left-10 bg-[#111]/90 backdrop-blur-xl border border-yellow-500/20 rounded-2xl p-5 shadow-xl"
-      >
-
-        <p className="text-gray-400 text-sm">
-          OEM Network
-        </p>
-
-        <h3 className="text-3xl font-bold text-yellow-400 mt-2">
-          Global
-        </h3>
-
-      </motion.div>
+      </div>
 
     </div>
   );
