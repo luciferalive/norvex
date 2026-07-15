@@ -4,119 +4,191 @@ import {
   ShieldCheck,
   PackageCheck,
   Handshake,
+  Factory,
+  Truck,
 } from "lucide-react";
 
 const features = [
   {
     icon: Globe2,
-    title: "Global Sourcing",
-    description: "Reliable sourcing through an international supplier network.",
+    title: "Global Supplier Network",
+    description:
+      "Connecting businesses with verified manufacturers, OEMs and suppliers worldwide.",
   },
   {
     icon: ShieldCheck,
     title: "Quality Assurance",
-    description: "Every procurement is verified for quality and compliance.",
+    description:
+      "Supplier evaluation, technical verification and compliance-focused procurement.",
   },
   {
     icon: PackageCheck,
     title: "Complete Procurement",
-    description: "From RFQ to delivery, we manage the complete procurement cycle.",
+    description:
+      "Managing the complete cycle from RFQ, sourcing and documentation to delivery.",
   },
   {
     icon: Handshake,
-    title: "Trusted Partnership",
-    description: "Building long-term relationships through reliable service.",
+    title: "Trusted Partnerships",
+    description:
+      "Building long-term relationships through transparency and reliable execution.",
+  },
+  {
+    icon: Factory,
+    title: "Industrial Expertise",
+    description:
+      "Supporting Oil & Gas, Aviation, Marine, EPC and manufacturing industries.",
+  },
+  {
+    icon: Truck,
+    title: "Logistics Support",
+    description:
+      "Coordinating shipments and supply chain requirements globally.",
   },
 ];
 
+
 export default function About() {
+
   return (
+
     <Reveal>
+
       <section
         id="about"
-        className="bg-[#050505] py-24 px-5 sm:px-8 lg:px-6 text-white"
+        className="bg-slate-50 py-28 px-6"
       >
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* Left */}
+        <div className="mx-auto max-w-7xl">
 
-          <div>
 
-            <p className="uppercase tracking-[0.35em] text-yellow-400 text-sm font-semibold">
+          {/* HEADER */}
+
+          <div className="max-w-4xl">
+
+            <span className="rounded-full bg-emerald-50 px-5 py-2 text-sm font-semibold uppercase tracking-[0.25em] text-[#0E8F66]">
               About NORVEX
-            </p>
+            </span>
 
-            <h2 className="mt-4 text-3xl md:text-5xl font-bold leading-tight">
+
+            <h1 className="mt-8 text-5xl font-black leading-tight text-[#123E63]">
+
               Global Procurement.
               <br />
-              Reliable Partnerships.
-            </h2>
 
-            <p className="mt-8 text-gray-400 leading-8 text-lg">
-              NORVEX (Network Of Resources, Ventures & Exports) delivers
-              professional procurement and sourcing solutions for industrial,
+              Reliable Partnerships.
+
+            </h1>
+
+
+            <p className="mt-8 text-lg leading-9 text-slate-600">
+
+              NORVEX (Network Of Resources, Ventures & Exports) provides
+              complete procurement and sourcing solutions for industrial,
               commercial and infrastructure projects worldwide.
+
             </p>
 
-            <p className="mt-6 text-gray-400 leading-8">
+
+            <p className="mt-5 text-lg leading-9 text-slate-600">
+
               We specialize in OEM sourcing, MRO supplies, engineering
-              materials, industrial equipment, import & export services and
-              complete supply chain management. Our mission is to connect
-              businesses with trusted manufacturers while ensuring quality,
-              competitive pricing and on-time delivery.
+              materials, industrial equipment and complete supply chain
+              solutions. Our goal is to simplify procurement by connecting
+              businesses with reliable suppliers while ensuring quality,
+              competitive pricing and timely delivery.
+
             </p>
 
           </div>
 
-          {/* Right */}
 
-          <div className="grid sm:grid-cols-2 gap-6">
 
-            {features.map((feature) => {
+          {/* FEATURES */}
+
+
+          <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+
+            {features.map((feature)=>{
+
               const Icon = feature.icon;
 
+
               return (
+
                 <div
                   key={feature.title}
                   className="
-                    group
-                    rounded-3xl
-                    border
-                    border-yellow-500/20
-                    bg-[#111]
-                    p-7
-                    transition-all
-                    duration-300
-                    hover:-translate-y-2
-                    hover:border-yellow-400
-                    hover:shadow-[0_20px_50px_rgba(250,204,21,0.12)]
+                  group
+                  rounded-[32px]
+                  border
+                  border-slate-200
+                  bg-white
+                  p-8
+                  shadow-sm
+                  transition-all
+                  duration-500
+                  hover:-translate-y-3
+                  hover:border-[#0E8F66]
+                  hover:shadow-2xl
                   "
                 >
-                  <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-yellow-400/10">
 
-                    <Icon
-                      size={32}
-                      className="text-yellow-400 transition-transform group-hover:scale-110"
-                    />
+
+                  <div
+                    className="
+                    mb-6
+                    flex
+                    h-16
+                    w-16
+                    items-center
+                    justify-center
+                    rounded-2xl
+                    bg-[#123E63]
+                    text-white
+                    transition
+                    group-hover:bg-[#0E8F66]
+                    "
+                  >
+
+                    <Icon size={32}/>
 
                   </div>
 
-                  <h3 className="text-xl font-bold mb-3">
+
+
+                  <h3 className="text-2xl font-bold text-[#123E63]">
+
                     {feature.title}
+
                   </h3>
 
-                  <p className="text-gray-400 leading-7">
+
+
+                  <p className="mt-4 leading-8 text-slate-600">
+
                     {feature.description}
+
                   </p>
 
+
                 </div>
+
               );
+
             })}
+
 
           </div>
 
+
         </div>
+
       </section>
+
+
     </Reveal>
+
   );
 }

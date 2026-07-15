@@ -6,109 +6,213 @@ const industries = [
     image: "/images/oil-gas.jpg",
     title: "Oil & Gas",
     description:
-      "Supporting upstream, downstream, and energy projects with reliable industrial procurement solutions.",
+      "Supporting upstream, downstream and offshore operations with reliable industrial procurement solutions.",
   },
   {
     image: "/images/aviation.jpg",
     title: "Aviation",
     description:
-      "Providing sourcing support for aviation components, tools, equipment, and technical requirements.",
+      "Providing aviation components, MRO supplies, tools and technical sourcing solutions.",
   },
   {
     image: "/images/marine.jpg",
     title: "Marine",
     description:
-      "Supplying marine equipment, consumables, and solutions for offshore operations.",
+      "Supplying marine equipment, consumables and offshore project requirements.",
   },
   {
     image: "/images/epc.jpg",
     title: "EPC Projects",
     description:
-      "Complete procurement assistance for engineering, construction, and infrastructure projects.",
+      "Complete procurement support for engineering, construction and infrastructure projects.",
   },
   {
     image: "/images/manufacturing.jpg",
     title: "Manufacturing",
     description:
-      "Helping manufacturers source industrial materials and specialized components.",
+      "Helping manufacturers source industrial materials, components and production requirements.",
   },
   {
     image: "/images/Construction.jpg",
     title: "Construction",
     description:
-      "Reliable supply solutions for construction companies and large-scale developments.",
+      "Reliable supply solutions supporting large-scale construction and development projects.",
   },
 ];
 
+
 export default function Industries() {
+
   return (
-    <section
-      id="industries"
-      className="bg-[#050505] px-5 py-20 text-white sm:px-8 lg:px-6"
-    >
-      <Reveal>
+
+    <Reveal>
+
+      <section
+        id="industries"
+        className="bg-slate-50 px-6 py-28"
+      >
+
         <div className="mx-auto max-w-7xl">
 
-          {/* Heading */}
-          <div className="mx-auto mb-14 max-w-3xl text-center">
 
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-yellow-400 sm:text-sm">
+          {/* HEADER */}
+
+          <div className="mx-auto max-w-3xl text-center">
+
+
+            <span className="rounded-full bg-emerald-50 px-5 py-2 text-sm font-semibold uppercase tracking-[0.25em] text-[#0E8F66]">
+
               Industries We Serve
+
+            </span>
+
+
+
+            <h1 className="mt-8 text-5xl font-black text-[#123E63]">
+
+              Solutions Across
+              <br />
+              Multiple Industries
+
+            </h1>
+
+
+
+            <p className="mt-6 text-lg leading-8 text-slate-600">
+
+              NORVEX supports critical industries through global sourcing,
+              technical procurement and reliable supply chain solutions.
+
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl lg:text-5xl">
-              Solutions Across Multiple Sectors
-            </h2>
-
-            <p className="mt-5 text-base leading-8 text-gray-400 sm:text-lg">
-              Delivering procurement expertise to industries that require
-              reliability, quality, and global sourcing capabilities.
-            </p>
 
           </div>
 
-          {/* Cards */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
 
-            {industries.map((industry, index) => (
+
+          {/* CARDS */}
+
+
+          <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+
+
+            {industries.map((industry,index)=>(
+
+
               <div
                 key={index}
-                className="group overflow-hidden rounded-3xl border border-yellow-500/20 bg-[#111] transition-all duration-300 hover:-translate-y-2 hover:border-yellow-400 hover:shadow-[0_15px_40px_rgba(250,204,21,0.12)]"
+                className="
+                group
+                overflow-hidden
+                rounded-[32px]
+                border
+                border-slate-200
+                bg-white
+                shadow-sm
+                transition-all
+                duration-500
+                hover:-translate-y-3
+                hover:border-[#0E8F66]
+                hover:shadow-2xl
+                "
               >
+
+
+
                 <div className="relative overflow-hidden">
 
+
                   <Image
+
                     src={industry.image}
+
                     alt={industry.title}
-                    width={500}
-                    height={300}
-                    className="h-56 w-full object-cover transition duration-500 group-hover:scale-110"
+
+                    width={600}
+
+                    height={350}
+
+                    className="
+                    h-64
+                    w-full
+                    object-cover
+                    transition
+                    duration-700
+                    group-hover:scale-110
+                    "
+
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+
+                  <div
+                    className="
+                    absolute
+                    inset-0
+                    bg-gradient-to-t
+                    from-[#123E63]/80
+                    via-transparent
+                    "
+                  />
+
 
                 </div>
 
-                <div className="flex h-[220px] flex-col p-6">
 
-                  <h3 className="mb-3 text-2xl font-bold">
+
+                <div className="p-8">
+
+
+                  <h2 className="text-3xl font-bold text-[#123E63]">
+
                     {industry.title}
-                  </h3>
 
-                  <p className="flex-grow leading-7 text-gray-400">
+                  </h2>
+
+
+
+                  <p className="mt-5 leading-8 text-slate-600">
+
                     {industry.description}
+
                   </p>
 
-                  <div className="mt-5 h-[2px] w-14 rounded-full bg-yellow-400 transition-all duration-300 group-hover:w-24" />
+
+
+                  <div
+                    className="
+                    mt-6
+                    h-1
+                    w-14
+                    rounded-full
+                    bg-[#0E8F66]
+                    transition-all
+                    duration-300
+                    group-hover:w-28
+                    "
+                  />
+
 
                 </div>
+
+
               </div>
+
+
             ))}
+
 
           </div>
 
+
         </div>
-      </Reveal>
-    </section>
+
+
+      </section>
+
+
+    </Reveal>
+
   );
+
 }

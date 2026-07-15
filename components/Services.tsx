@@ -9,6 +9,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+
 const services = [
   {
     title: "OEM Procurement",
@@ -25,108 +26,196 @@ const services = [
   {
     title: "Industrial Supplies",
     description:
-      "Complete solutions for MRO, industrial equipment, tools, and consumables.",
+      "Complete solutions for MRO materials, industrial equipment, tools and consumables.",
     icon: Package,
   },
   {
     title: "Project Procurement",
     description:
-      "End-to-end procurement support for EPC, Oil & Gas, Marine, and industrial projects.",
+      "End-to-end procurement support for EPC, Oil & Gas, Marine and industrial projects.",
     icon: Building2,
   },
   {
     title: "Logistics Support",
     description:
-      "Reliable coordination from supplier selection to final delivery.",
+      "Supplier coordination, shipment management and delivery support worldwide.",
     icon: Ship,
   },
   {
     title: "Custom Sourcing",
     description:
-      "Finding specialized products based on technical requirements and specifications.",
+      "Specialized sourcing based on technical requirements, specifications and project needs.",
     icon: Search,
   },
 ];
 
+
 export default function Services() {
+
   return (
-    <section
-      id="services"
-      className="bg-black py-20 px-5 sm:px-8 lg:px-6"
-    >
-      <Reveal>
-        <div className="max-w-7xl mx-auto">
 
-          {/* Heading */}
+    <Reveal>
 
-          <div className="max-w-3xl mx-auto text-center mb-14">
+      <section
+        id="services"
+        className="bg-slate-50 px-6 py-28"
+      >
 
-            <p className="text-yellow-400 uppercase tracking-[0.35em] text-xs sm:text-sm font-semibold">
+        <div className="mx-auto max-w-7xl">
+
+
+          {/* HEADER */}
+
+          <div className="mx-auto max-w-3xl text-center">
+
+
+            <span className="rounded-full bg-emerald-50 px-5 py-2 text-sm font-semibold uppercase tracking-[0.25em] text-[#0E8F66]">
+
               What We Do
-            </p>
 
-            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-              Our Procurement Services
-            </h2>
+            </span>
 
-            <p className="mt-6 text-gray-400 text-base sm:text-lg leading-8">
+
+
+            <h1 className="mt-8 text-5xl font-black text-[#123E63]">
+
+              Our Procurement
+              <br />
+              Services
+
+            </h1>
+
+
+
+            <p className="mt-6 text-lg leading-8 text-slate-600">
+
               Comprehensive sourcing solutions designed to support businesses
-              across industries worldwide with reliable suppliers and OEM
-              partners.
+              worldwide through reliable suppliers, OEM partnerships and
+              complete procurement management.
+
             </p>
+
 
           </div>
 
-          {/* Cards */}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
 
-            {services.map((service, index) => {
+          {/* SERVICES GRID */}
+
+
+          <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+
+
+            {services.map((service,index)=>{
+
               const Icon = service.icon;
 
+
               return (
+
                 <div
+
                   key={index}
-                  className="group flex flex-col rounded-3xl border border-yellow-500/20 bg-[#111] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-yellow-400 hover:shadow-[0_20px_50px_rgba(250,204,21,0.12)]"
+
+                  className="
+                  group
+                  rounded-[32px]
+                  border
+                  border-slate-200
+                  bg-white
+                  p-8
+                  shadow-sm
+                  transition-all
+                  duration-500
+                  hover:-translate-y-3
+                  hover:border-[#0E8F66]
+                  hover:shadow-2xl
+                  "
+
                 >
 
-                  <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/10 mb-7">
 
-                    <Icon
-                      size={34}
-                      strokeWidth={2}
-                      className="text-yellow-400 transition-transform duration-300 group-hover:scale-110"
-                    />
+
+                  <div
+                    className="
+                    mb-7
+                    flex
+                    h-16
+                    w-16
+                    items-center
+                    justify-center
+                    rounded-2xl
+                    bg-[#123E63]
+                    text-white
+                    transition
+                    duration-300
+                    group-hover:bg-[#0E8F66]
+                    "
+                  >
+
+                    <Icon size={34}/>
 
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    {service.title}
-                  </h3>
 
-                  <p className="text-gray-400 leading-7 flex-grow">
+
+
+                  <h2 className="text-2xl font-bold text-[#123E63]">
+
+                    {service.title}
+
+                  </h2>
+
+
+
+
+                  <p className="mt-5 leading-8 text-slate-600">
+
                     {service.description}
+
                   </p>
 
-                  <div className="mt-8 flex items-center text-yellow-400 font-semibold">
 
-                    <span>Learn More</span>
+
+
+                  <div className="mt-8 flex items-center font-semibold text-[#0E8F66]">
+
+
+                    Learn More
+
 
                     <ArrowRight
+
                       size={18}
+
                       className="ml-2 transition-transform duration-300 group-hover:translate-x-2"
+
                     />
+
 
                   </div>
 
+
                 </div>
+
+
               );
+
             })}
+
 
           </div>
 
+
+
         </div>
-      </Reveal>
-    </section>
+
+
+      </section>
+
+
+    </Reveal>
+
   );
+
 }

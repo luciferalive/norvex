@@ -1,168 +1,106 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import {
-  Globe2,
-  Building2,
-  PackageCheck,
-  ShieldCheck,
-} from "lucide-react";
+import { Globe2, Factory, PackageCheck, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
 
 const stats = [
   {
-    value: 50,
-    suffix: "+",
-    title: "Countries Reached",
-    description:
-      "Supporting procurement requirements across international markets.",
     icon: Globe2,
+    number: "50+",
+    title: "Countries Connected",
+    description:
+      "Supporting global procurement through an international sourcing network.",
   },
   {
-    value: 500,
-    suffix: "+",
-    title: "Global Suppliers",
+    icon: Factory,
+    number: "500+",
+    title: "Verified Suppliers",
     description:
-      "Strong network of OEMs, manufacturers and industrial suppliers.",
-    icon: Building2,
+      "OEMs, manufacturers and authorized distributors across industries.",
   },
   {
-    value: 1000,
-    suffix: "+",
-    title: "Products Sourced",
-    description:
-      "Mechanical, electrical, safety and industrial equipment.",
     icon: PackageCheck,
+    number: "1000+",
+    title: "Industrial Products",
+    description:
+      "Mechanical, electrical, safety, MRO and project procurement solutions.",
   },
   {
-    value: 100,
-    suffix: "%",
-    title: "Commitment",
-    description:
-      "Quality-driven sourcing with responsive customer support.",
     icon: ShieldCheck,
+    number: "End-to-End",
+    title: "Procurement Support",
+    description:
+      "From RFQ to delivery with quality assurance and logistics coordination.",
   },
 ];
 
-function Counter({
-  end,
-  suffix,
-}: {
-  end: number;
-  suffix: string;
-}) {
-  const [count, setCount] = useState(0);
-  const [start, setStart] = useState(false);
-  const ref = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStart(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.35 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!start) return;
-
-    let current = 0;
-
-    const timer = setInterval(() => {
-      current += Math.ceil(end / 40);
-
-      if (current >= end) {
-        current = end;
-        clearInterval(timer);
-      }
-
-      setCount(current);
-    }, 35);
-
-    return () => clearInterval(timer);
-  }, [start, end]);
-
-  return (
-    <h3
-      ref={ref}
-      className="mt-5 text-5xl font-black text-[#123E63]"
-    >
-      {count}
-      {suffix}
-    </h3>
-  );
-}
-
 export default function Stats() {
   return (
-    <section className="relative -mt-20 z-20 px-6 pb-24">
+    <section className="relative py-28 px-6">
 
       <div className="mx-auto max-w-7xl">
 
-        <div className="rounded-[40px] bg-white p-8 shadow-[0_25px_80px_rgba(15,23,42,.08)] lg:p-14">
+        <div className="mb-20 text-center">
 
-          <div className="mb-14 text-center">
+          <span className="rounded-full bg-emerald-50 px-5 py-2 text-sm font-semibold uppercase tracking-[0.25em] text-[#0E8F66]">
+            Why Businesses Choose NORVEX
+          </span>
 
-            <span className="rounded-full bg-emerald-50 px-5 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#0E8F66]">
-              NORVEX AT A GLANCE
-            </span>
+          <h2 className="mt-8 text-5xl font-black text-[#123E63]">
+            Procurement Backed
+            <br />
+            By Experience
+          </h2>
 
-            <h2 className="mt-6 text-4xl font-black text-[#123E63] lg:text-5xl">
-              Procurement Powered by Global Connections
-            </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+            We connect industries with reliable suppliers and manufacturers,
+            simplifying global sourcing through technical expertise,
+            transparency and dependable execution.
+          </p>
 
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-              We simplify industrial procurement through a trusted network
-              of suppliers, manufacturers and sourcing partners worldwide.
-            </p>
+        </div>
 
-          </div>
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
 
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+          {stats.map((item, index) => {
+            const Icon = item.icon;
 
-            {stats.map((item) => {
-              const Icon = item.icon;
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 }}
+                className="group relative overflow-hidden rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-3 hover:border-[#0E8F66] hover:shadow-2xl"
+              >
+                <div className="absolute right-0 top-0 h-36 w-36 rounded-full bg-emerald-50 blur-3xl transition-all duration-500 group-hover:bg-emerald-100" />
 
-              return (
-                <div
-                  key={item.title}
-                  className="group rounded-3xl border border-slate-200 bg-slate-50 p-8 transition duration-300 hover:-translate-y-2 hover:border-[#0E8F66] hover:bg-white hover:shadow-xl"
-                >
+                <div className="relative">
 
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#123E63]/10">
+                  <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#123E63] text-white transition-all duration-300 group-hover:bg-[#0E8F66]">
 
-                    <Icon
-                      size={30}
-                      className="text-[#123E63] transition group-hover:text-[#0E8F66]"
-                    />
+                    <Icon size={32} />
 
                   </div>
 
-                  <Counter
-                    end={item.value}
-                    suffix={item.suffix}
-                  />
-
-                  <h3 className="mt-4 text-xl font-bold text-[#123E63]">
-                    {item.title}
+                  <h3 className="text-4xl font-black text-[#123E63]">
+                    {item.number}
                   </h3>
 
-                  <p className="mt-4 leading-7 text-slate-600">
+                  <h4 className="mt-5 text-2xl font-bold text-slate-900">
+                    {item.title}
+                  </h4>
+
+                  <p className="mt-4 leading-8 text-slate-600">
                     {item.description}
                   </p>
 
                 </div>
-              );
-            })}
 
-          </div>
+              </motion.div>
+            );
+          })}
 
         </div>
 

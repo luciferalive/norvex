@@ -1,49 +1,73 @@
 "use client";
 
-import { Send, User, Building2, Mail, Phone, FileText } from "lucide-react";
+import {
+  Send,
+  User,
+  Building2,
+  Mail,
+  Phone,
+  FileText,
+} from "lucide-react";
 
 export default function RFQ() {
   return (
     <section
       id="rfq"
-      className="bg-black py-24 px-5 sm:px-8 lg:px-6 text-white"
+      className="bg-slate-50 py-28 px-6"
     >
-      <div className="max-w-6xl mx-auto">
+
+      <div className="mx-auto max-w-6xl">
+
 
         <div
           className="
-            rounded-3xl
-            border
-            border-yellow-500/20
-            bg-[#111]
-            p-8
-            md:p-14
-            shadow-[0_25px_70px_rgba(250,204,21,0.08)]
+          rounded-[40px]
+          border
+          border-slate-200
+          bg-white
+          p-8
+          shadow-xl
+          md:p-14
           "
         >
 
-          <div className="text-center mb-14">
 
-            <p className="uppercase tracking-[0.35em] text-yellow-400 text-sm font-semibold">
-              START YOUR PROJECT
-            </p>
+          {/* HEADER */}
 
-            <h2 className="mt-4 text-3xl md:text-5xl font-bold">
+          <div className="mb-14 text-center">
+
+
+            <span className="rounded-full bg-emerald-50 px-5 py-2 text-sm font-semibold uppercase tracking-[0.25em] text-[#0E8F66]">
+              Start Your Project
+            </span>
+
+
+            <h2 className="mt-8 text-5xl font-black text-[#123E63]">
+
               Request A Quote
+
             </h2>
 
-            <p className="mt-5 max-w-2xl mx-auto text-gray-400 leading-8">
+
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+
               Share your procurement requirements and our sourcing specialists
-              will get back to you with the best solution.
+              will provide the best solution with reliable suppliers and
+              competitive pricing.
+
             </p>
 
+
           </div>
+
+
 
           <form
             action="https://api.web3forms.com/submit"
             method="POST"
-            className="grid md:grid-cols-2 gap-7"
+            className="grid gap-7 md:grid-cols-2"
           >
+
 
             <input
               type="hidden"
@@ -51,11 +75,13 @@ export default function RFQ() {
               value="27f6095f-9d7e-46ab-acd2-d739955ddf27"
             />
 
+
             <input
               type="hidden"
               name="subject"
               value="New NORVEX Website RFQ"
             />
+
 
             <input
               type="hidden"
@@ -63,14 +89,17 @@ export default function RFQ() {
               value="NORVEX Website"
             />
 
-            {/* Name */}
+
+
+            {/* NAME */}
 
             <div className="relative">
 
               <User
                 size={18}
-                className="absolute left-5 top-1/2 -translate-y-1/2 text-yellow-400"
+                className="absolute left-5 top-1/2 -translate-y-1/2 text-[#0E8F66]"
               />
+
 
               <input
                 type="text"
@@ -78,60 +107,69 @@ export default function RFQ() {
                 required
                 placeholder="Your Name"
                 className="
-                  w-full
-                  rounded-xl
-                  border
-                  border-yellow-500/20
-                  bg-black
-                  py-4
-                  pl-14
-                  pr-5
-                  outline-none
-                  transition
-                  focus:border-yellow-400
+                w-full
+                rounded-xl
+                border
+                border-slate-200
+                bg-slate-50
+                py-4
+                pl-14
+                pr-5
+                text-slate-800
+                outline-none
+                transition
+                focus:border-[#0E8F66]
                 "
               />
 
             </div>
 
-            {/* Company */}
+
+
+            {/* COMPANY */}
 
             <div className="relative">
 
               <Building2
                 size={18}
-                className="absolute left-5 top-1/2 -translate-y-1/2 text-yellow-400"
+                className="absolute left-5 top-1/2 -translate-y-1/2 text-[#0E8F66]"
               />
+
 
               <input
                 type="text"
                 name="company"
                 placeholder="Company Name"
                 className="
-                  w-full
-                  rounded-xl
-                  border
-                  border-yellow-500/20
-                  bg-black
-                  py-4
-                  pl-14
-                  pr-5
-                  outline-none
-                  transition
-                  focus:border-yellow-400
+                w-full
+                rounded-xl
+                border
+                border-slate-200
+                bg-slate-50
+                py-4
+                pl-14
+                pr-5
+                text-slate-800
+                outline-none
+                transition
+                focus:border-[#0E8F66]
                 "
               />
 
             </div>
 
-            {/* Email */}
+
+
+
+            {/* EMAIL */}
 
             <div className="relative">
 
               <Mail
                 size={18}
-                className="absolute left-5 top-1/2 -translate-y-1/2 text-yellow-400"
+                className="absolute left-5 top-1/2 -translate-y-1/2 text-[#0E8F66]"
               />
+
 
               <input
                 type="email"
@@ -139,60 +177,71 @@ export default function RFQ() {
                 required
                 placeholder="Email Address"
                 className="
-                  w-full
-                  rounded-xl
-                  border
-                  border-yellow-500/20
-                  bg-black
-                  py-4
-                  pl-14
-                  pr-5
-                  outline-none
-                  transition
-                  focus:border-yellow-400
+                w-full
+                rounded-xl
+                border
+                border-slate-200
+                bg-slate-50
+                py-4
+                pl-14
+                pr-5
+                text-slate-800
+                outline-none
+                transition
+                focus:border-[#0E8F66]
                 "
               />
 
             </div>
 
-            {/* Phone */}
+
+
+
+            {/* PHONE */}
 
             <div className="relative">
 
               <Phone
                 size={18}
-                className="absolute left-5 top-1/2 -translate-y-1/2 text-yellow-400"
+                className="absolute left-5 top-1/2 -translate-y-1/2 text-[#0E8F66]"
               />
+
 
               <input
                 type="text"
                 name="phone"
                 placeholder="Phone Number"
                 className="
-                  w-full
-                  rounded-xl
-                  border
-                  border-yellow-500/20
-                  bg-black
-                  py-4
-                  pl-14
-                  pr-5
-                  outline-none
-                  transition
-                  focus:border-yellow-400
+                w-full
+                rounded-xl
+                border
+                border-slate-200
+                bg-slate-50
+                py-4
+                pl-14
+                pr-5
+                text-slate-800
+                outline-none
+                transition
+                focus:border-[#0E8F66]
                 "
               />
 
             </div>
 
-            {/* Message */}
+
+
+
+            {/* MESSAGE */}
 
             <div className="relative md:col-span-2">
 
+
               <FileText
                 size={18}
-                className="absolute left-5 top-6 text-yellow-400"
+                className="absolute left-5 top-6 text-[#0E8F66]"
               />
+
 
               <textarea
                 name="message"
@@ -200,61 +249,72 @@ export default function RFQ() {
                 required
                 placeholder="Describe your procurement requirement..."
                 className="
-                  w-full
-                  rounded-xl
-                  border
-                  border-yellow-500/20
-                  bg-black
-                  py-4
-                  pl-14
-                  pr-5
-                  outline-none
-                  transition
-                  resize-none
-                  focus:border-yellow-400
+                w-full
+                resize-none
+                rounded-xl
+                border
+                border-slate-200
+                bg-slate-50
+                py-4
+                pl-14
+                pr-5
+                text-slate-800
+                outline-none
+                transition
+                focus:border-[#0E8F66]
                 "
               />
 
             </div>
 
-            {/* Button */}
+
+
+
+            {/* BUTTON */}
+
 
             <button
               type="submit"
               className="
-                group
-                md:col-span-2
-                flex
-                items-center
-                justify-center
-                gap-3
-                rounded-xl
-                bg-yellow-400
-                py-4
-                text-lg
-                font-bold
-                text-black
-                transition-all
-                duration-300
-                hover:scale-[1.02]
-                hover:bg-yellow-300
+              group
+              md:col-span-2
+              flex
+              items-center
+              justify-center
+              gap-3
+              rounded-xl
+              bg-[#123E63]
+              py-4
+              text-lg
+              font-bold
+              text-white
+              transition
+              hover:bg-[#0E8F66]
               "
             >
 
               Submit Request
+
 
               <Send
                 size={20}
                 className="transition-transform group-hover:translate-x-1"
               />
 
+
             </button>
+
+
 
           </form>
 
+
         </div>
 
+
       </div>
+
+
     </section>
   );
 }
