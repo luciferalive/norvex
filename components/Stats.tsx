@@ -5,37 +5,41 @@ import {
   Globe2,
   Building2,
   PackageCheck,
-  Headset,
+  ShieldCheck,
 } from "lucide-react";
 
 const stats = [
   {
     value: 50,
     suffix: "+",
-    title: "Countries Served",
-    description: "Global sourcing network across international markets",
+    title: "Countries Reached",
+    description:
+      "Supporting procurement requirements across international markets.",
     icon: Globe2,
   },
   {
     value: 500,
     suffix: "+",
-    title: "Supplier Network",
-    description: "Trusted manufacturers and supplier partnerships",
+    title: "Global Suppliers",
+    description:
+      "Strong network of OEMs, manufacturers and industrial suppliers.",
     icon: Building2,
   },
   {
     value: 1000,
     suffix: "+",
     title: "Products Sourced",
-    description: "Industrial products and technical solutions",
+    description:
+      "Mechanical, electrical, safety and industrial equipment.",
     icon: PackageCheck,
   },
   {
-    value: 24,
-    suffix: "/7",
-    title: "Procurement Support",
-    description: "Dedicated assistance for urgent requirements",
-    icon: Headset,
+    value: 100,
+    suffix: "%",
+    title: "Commitment",
+    description:
+      "Quality-driven sourcing with responsive customer support.",
+    icon: ShieldCheck,
   },
 ];
 
@@ -47,18 +51,18 @@ function Counter({
   suffix: string;
 }) {
   const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(false);
+  const [start, setStart] = useState(false);
   const ref = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setStarted(true);
+          setStart(true);
           observer.disconnect();
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.35 }
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -67,32 +71,28 @@ function Counter({
   }, []);
 
   useEffect(() => {
-    if (!started) return;
+    if (!start) return;
 
-    let start = 0;
-
-    const duration = 1800;
-
-    const increment = end / (duration / 16);
+    let current = 0;
 
     const timer = setInterval(() => {
-      start += increment;
+      current += Math.ceil(end / 40);
 
-      if (start >= end) {
-        setCount(end);
+      if (current >= end) {
+        current = end;
         clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
       }
-    }, 16);
+
+      setCount(current);
+    }, 35);
 
     return () => clearInterval(timer);
-  }, [started, end]);
+  }, [start, end]);
 
   return (
     <h3
       ref={ref}
-      className="text-4xl md:text-5xl font-extrabold text-yellow-400"
+      className="mt-5 text-5xl font-black text-[#123E63]"
     >
       {count}
       {suffix}
@@ -102,71 +102,67 @@ function Counter({
 
 export default function Stats() {
   return (
-    <section className="bg-black py-24 px-5 sm:px-8 lg:px-6 text-white">
+    <section className="relative -mt-20 z-20 px-6 pb-24">
 
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto max-w-7xl">
 
-        <div className="text-center mb-16">
+        <div className="rounded-[40px] bg-white p-8 shadow-[0_25px_80px_rgba(15,23,42,.08)] lg:p-14">
 
-          <p className="uppercase tracking-[0.35em] text-yellow-400 text-sm font-semibold">
-            NORVEX IN NUMBERS
-          </p>
+          <div className="mb-14 text-center">
 
-          <h2 className="mt-4 text-3xl md:text-5xl font-bold">
-            Trusted Across Industries
-          </h2>
+            <span className="rounded-full bg-emerald-50 px-5 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#0E8F66]">
+              NORVEX AT A GLANCE
+            </span>
 
-        </div>
+            <h2 className="mt-6 text-4xl font-black text-[#123E63] lg:text-5xl">
+              Procurement Powered by Global Connections
+            </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+              We simplify industrial procurement through a trusted network
+              of suppliers, manufacturers and sourcing partners worldwide.
+            </p>
 
-          {stats.map((stat) => {
-            const Icon = stat.icon;
+          </div>
 
-            return (
-              <div
-                key={stat.title}
-                className="
-                  group
-                  rounded-3xl
-                  border
-                  border-yellow-500/20
-                  bg-[#111]
-                  p-8
-                  text-center
-                  transition-all
-                  duration-300
-                  hover:-translate-y-2
-                  hover:border-yellow-400
-                  hover:shadow-[0_20px_50px_rgba(250,204,21,0.12)]
-                "
-              >
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
 
-                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-yellow-400/10">
+            {stats.map((item) => {
+              const Icon = item.icon;
 
-                  <Icon
-                    size={34}
-                    className="text-yellow-400 transition group-hover:scale-110"
+              return (
+                <div
+                  key={item.title}
+                  className="group rounded-3xl border border-slate-200 bg-slate-50 p-8 transition duration-300 hover:-translate-y-2 hover:border-[#0E8F66] hover:bg-white hover:shadow-xl"
+                >
+
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#123E63]/10">
+
+                    <Icon
+                      size={30}
+                      className="text-[#123E63] transition group-hover:text-[#0E8F66]"
+                    />
+
+                  </div>
+
+                  <Counter
+                    end={item.value}
+                    suffix={item.suffix}
                   />
 
+                  <h3 className="mt-4 text-xl font-bold text-[#123E63]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-4 leading-7 text-slate-600">
+                    {item.description}
+                  </p>
+
                 </div>
+              );
+            })}
 
-                <Counter
-                  end={stat.value}
-                  suffix={stat.suffix}
-                />
-
-                <h4 className="mt-4 text-xl font-bold">
-                  {stat.title}
-                </h4>
-
-                <p className="mt-3 text-gray-400 leading-7">
-                  {stat.description}
-                </p>
-
-              </div>
-            );
-          })}
+          </div>
 
         </div>
 

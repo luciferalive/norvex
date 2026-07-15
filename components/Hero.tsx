@@ -1,83 +1,94 @@
+import Link from "next/link";
 import WorldNetwork from "./WorldNetwork";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-black text-white pt-28 pb-16 lg:min-h-screen lg:flex lg:items-center"
+      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-[#F7FBFD] via-white to-[#EEF7F3]"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+      {/* Background */}
+
+      <div className="absolute inset-0">
+        <div className="absolute -left-40 top-10 h-[700px] w-[700px] rounded-full bg-[#0E8F66]/10 blur-[140px]" />
+        <div className="absolute -right-32 bottom-0 h-[700px] w-[700px] rounded-full bg-[#123E63]/10 blur-[160px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto flex w-full max-w-[1700px] flex-col items-center justify-between gap-20 px-8 pt-36 pb-20 lg:flex-row lg:px-16 xl:px-24">
 
         {/* LEFT */}
-        <div className="text-center lg:text-left">
 
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-yellow-400 sm:text-sm">
-            GLOBAL PROCUREMENT SOLUTIONS
-          </p>
+        <div className="max-w-3xl">
 
-          <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl lg:text-7xl">
-            Connecting
+          <span className="inline-flex rounded-full border border-[#0E8F66]/20 bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#0E8F66] shadow-sm">
+            GLOBAL PROCUREMENT • OEM SOURCING • INDUSTRIAL SUPPLY
+          </span>
+
+          <h1 className="mt-8 text-5xl font-black leading-[1.05] text-[#123E63] md:text-6xl xl:text-8xl">
+            Building
             <br />
-            <span className="text-yellow-400">
-              Global Industries
+            Reliable
+            <br />
+            <span className="text-[#0E8F66]">
+              Global Supply Chains
             </span>
-            <br />
-            With Trusted Suppliers
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg lg:mx-0 lg:text-xl">
-            NORVEX delivers industrial procurement, OEM sourcing,
-            project supply, MRO procurement and global supplier
-            management for Oil & Gas, Aviation, Marine,
-            EPC and Manufacturing industries.
+          <p className="mt-8 max-w-2xl text-xl leading-9 text-slate-600">
+            NORVEX delivers end-to-end procurement solutions, connecting
+            industries with trusted manufacturers, OEMs and global suppliers
+            for technical products, MRO requirements and project sourcing.
           </p>
 
-          {/* Buttons */}
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
+          <div className="mt-12 flex flex-wrap gap-5">
 
-            <a
-              href="#rfq"
-              className="rounded-full bg-yellow-400 px-8 py-4 text-center font-bold text-black transition duration-300 hover:scale-105 hover:bg-yellow-300"
+            <Link
+              href="/contact"
+              className="rounded-full bg-[#123E63] px-9 py-4 text-lg font-semibold text-white shadow-xl transition hover:scale-105 hover:bg-[#0E8F66]"
             >
               Request Quote
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/services"
-              className="rounded-full border border-yellow-400 px-8 py-4 text-center transition duration-300 hover:bg-yellow-400 hover:text-black"
+              className="rounded-full border border-slate-300 bg-white px-9 py-4 text-lg font-semibold text-slate-700 transition hover:border-[#0E8F66] hover:text-[#0E8F66]"
             >
               Explore Services
-            </a>
+            </Link>
 
           </div>
 
           {/* Stats */}
-          <div className="mt-12 grid grid-cols-3 gap-5 text-center lg:text-left">
+
+          <div className="mt-20 grid grid-cols-3 gap-10">
 
             <div>
-              <h2 className="text-3xl font-bold text-yellow-400 sm:text-4xl">
-                35+
-              </h2>
-              <p className="mt-1 text-sm text-gray-500">
-                Countries
+              <h3 className="text-5xl font-black text-[#123E63]">
+                50+
+              </h3>
+
+              <p className="mt-3 text-slate-500">
+                Countries Served
               </p>
             </div>
 
             <div>
-              <h2 className="text-3xl font-bold text-yellow-400 sm:text-4xl">
+              <h3 className="text-5xl font-black text-[#123E63]">
                 500+
-              </h2>
-              <p className="mt-1 text-sm text-gray-500">
-                Suppliers
+              </h3>
+
+              <p className="mt-3 text-slate-500">
+                Supplier Network
               </p>
             </div>
 
             <div>
-              <h2 className="text-3xl font-bold text-yellow-400 sm:text-4xl">
-                OEM
-              </h2>
-              <p className="mt-1 text-sm text-gray-500">
-                Network
+              <h3 className="text-5xl font-black text-[#123E63]">
+                24/7
+              </h3>
+
+              <p className="mt-3 text-slate-500">
+                Procurement Support
               </p>
             </div>
 
@@ -86,10 +97,17 @@ export default function Hero() {
         </div>
 
         {/* RIGHT */}
-        <div className="flex justify-center">
-          <div className="scale-[0.72] sm:scale-90 lg:scale-100 origin-center">
+
+        <div className="relative flex w-full justify-center lg:w-auto">
+
+          <div className="absolute h-[650px] w-[650px] rounded-full bg-gradient-to-br from-[#123E63]/10 to-[#0E8F66]/10 blur-[120px]" />
+
+          <div className="relative rounded-[40px] border border-white/70 bg-white/80 p-8 shadow-[0_30px_80px_rgba(18,62,99,0.15)] backdrop-blur-xl">
+
             <WorldNetwork />
+
           </div>
+
         </div>
 
       </div>

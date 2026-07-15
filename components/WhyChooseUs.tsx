@@ -1,111 +1,142 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
+import {
+  Globe2,
+  Factory,
+  ShieldCheck,
+ Clock3,
+  BadgeCheck,
+  Truck,
+} from "lucide-react";
 
 const reasons = [
   {
     image: "/images/supplier-network.jpg",
     title: "Global Supplier Network",
     description:
-      "Access to trusted manufacturers, OEMs, and suppliers across international markets.",
+      "Access a worldwide network of trusted manufacturers, OEMs and industrial suppliers.",
+    icon: Globe2,
   },
   {
     image: "/images/OEM&ManufacturerConnections.jpg",
-    title: "OEM & Manufacturer Connections",
+    title: "OEM Partnerships",
     description:
-      "Strong relationships with verified suppliers to ensure competitive pricing and reliability.",
+      "Reliable sourcing through strong relationships with verified manufacturers.",
+    icon: Factory,
   },
   {
     image: "/images/QualityAssurance.jpg",
     title: "Quality Assurance",
     description:
-      "We focus on sourcing reliable products meeting required specifications and standards.",
+      "Products sourced according to your technical requirements and quality expectations.",
+    icon: ShieldCheck,
   },
   {
     image: "/images/TechnicalProcurement.jpg",
     title: "Technical Procurement",
     description:
-      "Our team understands technical requirements and helps source the right solutions.",
+      "Engineering-focused procurement support for complex industrial requirements.",
+    icon: BadgeCheck,
   },
   {
     image: "/images/FastRFQResponse.jpg",
     title: "Fast RFQ Response",
     description:
-      "Quick quotation support with accurate sourcing and supplier coordination.",
+      "Quick quotations with efficient supplier coordination and communication.",
+    icon: Clock3,
   },
   {
     image: "/images/IndustryExperience.jpg",
-    title: "Industry Experience",
+    title: "Worldwide Logistics",
     description:
-      "Supporting Oil & Gas, Aviation, Marine, EPC, and industrial sectors.",
+      "Complete procurement support from sourcing to international delivery.",
+    icon: Truck,
   },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-[#050505] px-5 py-20 text-white sm:px-8 lg:px-6">
+    <section className="bg-white py-28 px-6">
+
       <Reveal>
+
         <div className="mx-auto max-w-7xl">
 
-          {/* Heading */}
-          <div className="mx-auto mb-14 max-w-3xl text-center">
+          <div className="mx-auto mb-20 max-w-3xl text-center">
 
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-yellow-400 sm:text-sm">
+            <span className="rounded-full bg-emerald-50 px-5 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#0E8F66]">
               Why NORVEX
-            </p>
+            </span>
 
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl lg:text-5xl">
-              Why Choose Us
+            <h2 className="mt-6 text-5xl font-black text-[#123E63]">
+              Why Businesses Choose NORVEX
             </h2>
 
-            <p className="mt-5 text-base leading-8 text-gray-400 sm:text-lg">
-              Delivering reliable procurement solutions through global sourcing,
-              technical expertise and trusted supplier partnerships.
+            <p className="mt-6 text-lg leading-8 text-slate-600">
+              Combining technical expertise, global supplier relationships and
+              responsive procurement services to deliver dependable sourcing
+              solutions worldwide.
             </p>
 
           </div>
 
-          {/* Cards */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
 
-            {reasons.map((item, index) => (
-              <div
-                key={index}
-                className="group overflow-hidden rounded-3xl border border-yellow-500/20 bg-[#111] transition-all duration-300 hover:-translate-y-2 hover:border-yellow-400 hover:shadow-[0_15px_40px_rgba(250,204,21,0.12)]"
-              >
-                <div className="relative overflow-hidden">
+            {reasons.map((item) => {
+              const Icon = item.icon;
 
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={500}
-                    height={320}
-                    className="h-56 w-full object-cover transition duration-500 group-hover:scale-110"
-                  />
+              return (
+                <div
+                  key={item.title}
+                  className="group overflow-hidden rounded-[30px] border border-slate-200 bg-white transition duration-300 hover:-translate-y-3 hover:border-[#0E8F66] hover:shadow-2xl"
+                >
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="relative h-60 overflow-hidden">
+
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition duration-700 group-hover:scale-110"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#123E63]/90 via-[#123E63]/20 to-transparent" />
+
+                    <div className="absolute bottom-5 left-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white">
+
+                      <Icon
+                        size={28}
+                        className="text-[#123E63]"
+                      />
+
+                    </div>
+
+                  </div>
+
+                  <div className="p-8">
+
+                    <h3 className="text-2xl font-bold text-[#123E63]">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-5 leading-8 text-slate-600">
+                      {item.description}
+                    </p>
+
+                    <div className="mt-8 h-1 w-16 rounded-full bg-[#0E8F66] transition-all duration-300 group-hover:w-28" />
+
+                  </div>
 
                 </div>
-
-                <div className="flex h-[220px] flex-col p-6">
-
-                  <h3 className="mb-3 text-xl font-bold sm:text-2xl">
-                    {item.title}
-                  </h3>
-
-                  <p className="flex-grow leading-7 text-gray-400">
-                    {item.description}
-                  </p>
-
-                  <div className="mt-5 h-[2px] w-14 rounded-full bg-yellow-400 transition-all duration-300 group-hover:w-24" />
-
-                </div>
-              </div>
-            ))}
+              );
+            })}
 
           </div>
 
         </div>
+
       </Reveal>
+
     </section>
   );
 }

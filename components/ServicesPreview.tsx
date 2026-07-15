@@ -1,84 +1,108 @@
 import Link from "next/link";
+import {
+  Globe2,
+  Factory,
+  Wrench,
+  ArrowRight,
+} from "lucide-react";
 
 const services = [
   {
     title: "Global Procurement",
-    image: "/services/global-procurement.jpg",
+    description:
+      "Complete sourcing solutions for industrial equipment, engineering products and project requirements.",
+    icon: Globe2,
   },
   {
     title: "OEM Sourcing",
-    image: "/services/oem-sourcing.jpg",
+    description:
+      "Direct sourcing from trusted manufacturers and OEM partners across global markets.",
+    icon: Factory,
   },
   {
     title: "MRO Supplies",
-    image: "/services/mro.jpg",
+    description:
+      "Reliable supply of maintenance, repair and operational products for uninterrupted business operations.",
+    icon: Wrench,
   },
 ];
 
 export default function ServicesPreview() {
   return (
-    <section className="bg-black py-28 px-6 text-white">
+    <section className="bg-white py-28 px-6">
 
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto max-w-7xl">
 
-        <div className="flex justify-between items-end mb-14">
+        <div className="mb-16 flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
 
           <div>
 
-            <p className="uppercase tracking-[0.35em] text-yellow-400 mb-4">
-              OUR SERVICES
-            </p>
+            <span className="rounded-full bg-emerald-50 px-5 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#0E8F66]">
+              Our Services
+            </span>
 
-            <h2 className="text-5xl font-bold">
+            <h2 className="mt-6 text-5xl font-black text-[#123E63]">
               Procurement Solutions
             </h2>
+
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              Delivering dependable sourcing, procurement and industrial
+              supply services tailored to the needs of modern businesses.
+            </p>
 
           </div>
 
           <Link
             href="/services"
-            className="text-yellow-400 font-semibold hover:underline"
+            className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-6 py-3 font-semibold text-[#123E63] transition hover:border-[#0E8F66] hover:text-[#0E8F66]"
           >
-            View All →
+            View All Services
+
+            <ArrowRight size={18} />
           </Link>
 
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-8 lg:grid-cols-3">
 
-          {services.map((service) => (
+          {services.map((service) => {
+            const Icon = service.icon;
 
-            <Link
-              key={service.title}
-              href="/services"
-              className="group overflow-hidden rounded-3xl border border-yellow-500/20 bg-[#111]"
-            >
+            return (
+              <div
+                key={service.title}
+                className="group rounded-[30px] border border-slate-200 bg-white p-10 transition duration-300 hover:-translate-y-3 hover:border-[#0E8F66] hover:shadow-2xl"
+              >
 
-              <div className="overflow-hidden">
+                <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#123E63]/10">
 
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="h-72 w-full object-cover transition duration-500 group-hover:scale-110"
-                />
+                  <Icon
+                    size={38}
+                    className="text-[#123E63] transition duration-300 group-hover:text-[#0E8F66]"
+                  />
 
-              </div>
+                </div>
 
-              <div className="p-8">
-
-                <h3 className="text-2xl font-bold">
+                <h3 className="mt-8 text-2xl font-bold text-[#123E63]">
                   {service.title}
                 </h3>
 
-                <p className="mt-4 text-gray-400">
-                  Professional sourcing solutions tailored for industrial procurement.
+                <p className="mt-5 leading-8 text-slate-600">
+                  {service.description}
                 </p>
 
+                <Link
+                  href="/services"
+                  className="mt-8 inline-flex items-center gap-2 font-semibold text-[#0E8F66]"
+                >
+                  Learn More
+
+                  <ArrowRight size={18} />
+                </Link>
+
               </div>
-
-            </Link>
-
-          ))}
+            );
+          })}
 
         </div>
 

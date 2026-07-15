@@ -1,135 +1,117 @@
 import {
-  ClipboardCheck,
-  Globe2,
-  SearchCheck,
+  FileText,
+  Search,
+  Factory,
+  ShieldCheck,
   Truck,
-  CircleCheckBig,
+  ArrowRight,
 } from "lucide-react";
 
 const steps = [
   {
-    icon: ClipboardCheck,
-    number: "01",
-    title: "Understand Requirement",
+    icon: FileText,
+    title: "Requirement Analysis",
     description:
-      "We analyze technical specifications, quantities, certifications and delivery expectations before sourcing begins.",
+      "We review technical specifications, quantities, certifications and delivery expectations before procurement begins.",
   },
   {
-    icon: Globe2,
-    number: "02",
-    title: "Global Sourcing",
+    icon: Search,
+    title: "Global Supplier Search",
     description:
-      "Our international supplier network identifies trusted OEMs, manufacturers and authorized distributors.",
+      "Our procurement specialists identify qualified OEMs, manufacturers and trusted suppliers worldwide.",
   },
   {
-    icon: SearchCheck,
-    number: "03",
-    title: "Technical Evaluation",
+    icon: Factory,
+    title: "Supplier Evaluation",
     description:
-      "Products are evaluated for compliance, certifications, commercial viability and technical suitability.",
+      "Commercial offers, technical compliance and supplier capabilities are carefully evaluated.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Quality Verification",
+    description:
+      "Products are verified to ensure compliance with customer specifications and quality standards.",
   },
   {
     icon: Truck,
-    number: "04",
-    title: "Quality & Logistics",
+    title: "Delivery & Logistics",
     description:
-      "Quality inspection, export documentation, freight coordination and delivery are managed efficiently.",
-  },
-  {
-    icon: CircleCheckBig,
-    number: "05",
-    title: "Complete Solution",
-    description:
-      "From RFQ to final delivery, NORVEX provides a complete procurement solution under one roof.",
+      "Complete coordination of documentation, freight, customs and worldwide delivery.",
   },
 ];
 
 export default function ProcurementProcess() {
   return (
-    <section className="bg-[#050505] py-24 px-5 sm:px-8 lg:px-6 text-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-slate-50 py-28 px-6">
 
-        <div className="text-center mb-20">
+      <div className="mx-auto max-w-7xl">
 
-          <p className="uppercase tracking-[0.35em] text-yellow-400 text-sm font-semibold">
-            How We Work
-          </p>
+        <div className="mx-auto mb-20 max-w-3xl text-center">
 
-          <h2 className="mt-4 text-3xl md:text-5xl font-bold">
-            Our Procurement Process
+          <span className="rounded-full bg-emerald-50 px-5 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#0E8F66]">
+            Procurement Process
+          </span>
+
+          <h2 className="mt-6 text-5xl font-black text-[#123E63]">
+            How We Deliver
           </h2>
 
-          <p className="mt-6 max-w-3xl mx-auto text-gray-400 leading-8">
+          <p className="mt-6 text-lg leading-8 text-slate-600">
             Every procurement request follows a structured workflow to ensure
-            quality, transparency and timely delivery.
+            speed, transparency and quality from RFQ to final delivery.
           </p>
 
         </div>
 
-        <div className="relative">
+        <div className="space-y-8">
 
-          {/* Desktop Line */}
+          {steps.map((step, index) => {
+            const Icon = step.icon;
 
-          <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-yellow-500/20 via-yellow-400 to-yellow-500/20" />
+            return (
+              <div
+                key={step.title}
+                className="group flex flex-col gap-8 rounded-[32px] border border-slate-200 bg-white p-8 transition duration-300 hover:border-[#0E8F66] hover:shadow-xl lg:flex-row lg:items-center"
+              >
 
-          <div className="grid gap-8 lg:grid-cols-5">
+                <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-[#123E63]/10">
 
-            {steps.map((step) => {
-              const Icon = step.icon;
+                  <Icon
+                    size={42}
+                    className="text-[#123E63]"
+                  />
 
-              return (
-                <div
-                  key={step.number}
-                  className="relative group"
-                >
-                  <div
-                    className="
-                    bg-[#111]
-                    border
-                    border-yellow-500/20
-                    rounded-3xl
-                    p-8
-                    text-center
-                    h-full
-                    transition-all
-                    duration-300
-                    hover:-translate-y-3
-                    hover:border-yellow-400
-                    hover:shadow-[0_20px_50px_rgba(250,204,21,0.12)]
-                  "
-                  >
-
-                    <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-yellow-400/10 border border-yellow-500/20">
-
-                      <Icon
-                        size={36}
-                        className="text-yellow-400"
-                      />
-
-                    </div>
-
-                    <div className="text-yellow-400 text-sm font-bold tracking-widest mb-3">
-                      STEP {step.number}
-                    </div>
-
-                    <h3 className="text-2xl font-bold mb-4">
-                      {step.title}
-                    </h3>
-
-                    <p className="text-gray-400 leading-7 text-sm">
-                      {step.description}
-                    </p>
-
-                  </div>
                 </div>
-              );
-            })}
 
-          </div>
+                <div className="flex-1">
+
+                  <div className="mb-2 text-sm font-bold uppercase tracking-[0.3em] text-[#0E8F66]">
+                    Step {index + 1}
+                  </div>
+
+                  <h3 className="text-3xl font-bold text-[#123E63]">
+                    {step.title}
+                  </h3>
+
+                  <p className="mt-4 max-w-4xl leading-8 text-slate-600">
+                    {step.description}
+                  </p>
+
+                </div>
+
+                <ArrowRight
+                  size={28}
+                  className="hidden text-[#0E8F66] transition group-hover:translate-x-2 lg:block"
+                />
+
+              </div>
+            );
+          })}
 
         </div>
 
       </div>
+
     </section>
   );
 }

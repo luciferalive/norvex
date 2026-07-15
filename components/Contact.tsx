@@ -1,35 +1,41 @@
 import Reveal from "./Reveal";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
 
 const contactDetails = [
   {
-    icon: "📧",
+    icon: Mail,
     title: "Email Us",
     details: [
       "sales.norvex@outlook.com",
       "norvex.in@outlook.com",
     ],
     link: "mailto:sales.norvex@outlook.com",
-    action: "Send Email",
+    button: "Send Email",
   },
   {
-    icon: "📞",
+    icon: Phone,
     title: "Call / WhatsApp",
     details: [
       "+91 97400 78445",
-      "Available for global inquiries",
+      "Available Worldwide",
     ],
     link: "https://wa.me/919740078445",
-    action: "Chat on WhatsApp",
+    button: "Chat Now",
   },
   {
-    icon: "📍",
-    title: "Our Location",
+    icon: MapPin,
+    title: "Location",
     details: [
       "India",
       "Serving Clients Worldwide",
     ],
-    link: null,
-    action: null,
+    link: "",
+    button: "",
   },
 ];
 
@@ -37,92 +43,79 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-black text-white py-20 px-5 sm:px-8 lg:px-6 scroll-mt-24"
+      className="bg-white py-28 px-6 scroll-mt-24"
     >
       <Reveal>
-        <div className="max-w-7xl mx-auto">
 
-          {/* Heading */}
-          <div className="max-w-3xl mx-auto text-center mb-14">
+        <div className="mx-auto max-w-7xl">
 
-            <p className="text-yellow-400 uppercase tracking-[0.35em] text-xs sm:text-sm font-semibold">
-              Get In Touch
-            </p>
+          <div className="mx-auto mb-20 max-w-3xl text-center">
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4">
-              Let's Discuss Your Requirements
+            <span className="rounded-full bg-emerald-50 px-5 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#0E8F66]">
+              Contact NORVEX
+            </span>
+
+            <h2 className="mt-6 text-5xl font-black text-[#123E63]">
+              Let's Build Your Supply Chain
             </h2>
 
-            <p className="text-gray-400 mt-5 text-base sm:text-lg leading-8">
-              Whether you need OEM sourcing, project procurement,
-              industrial supplies or technical sourcing support,
-              NORVEX is ready to help.
+            <p className="mt-6 text-lg leading-8 text-slate-600">
+              Looking for a reliable procurement partner? Our team is
+              ready to assist with sourcing, OEM procurement, industrial
+              supplies and project requirements.
             </p>
 
           </div>
 
-          {/* Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid gap-8 lg:grid-cols-3">
 
             {contactDetails.map((item) => {
-              const card = (
-                <div
-                  className="
-                    group
-                    h-full
-                    rounded-3xl
-                    border
-                    border-yellow-500/20
-                    bg-[#111]
-                    p-7
-                    transition-all
-                    duration-300
-                    hover:-translate-y-2
-                    hover:border-yellow-400
-                    hover:shadow-[0_15px_40px_rgba(250,204,21,0.12)]
-                  "
-                >
-                  <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-yellow-400/10 text-4xl mb-6">
-                    {item.icon}
+              const Icon = item.icon;
+
+              const Card = (
+                <div className="group rounded-[30px] border border-slate-200 bg-slate-50 p-10 transition duration-300 hover:-translate-y-3 hover:border-[#0E8F66] hover:bg-white hover:shadow-2xl">
+
+                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#123E63]/10">
+
+                    <Icon
+                      size={34}
+                      className="text-[#123E63] transition group-hover:text-[#0E8F66]"
+                    />
+
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-4">
+                  <h3 className="mt-8 text-2xl font-bold text-[#123E63]">
                     {item.title}
                   </h3>
 
-                  <div className="space-y-2">
+                  <div className="mt-5 space-y-3">
 
-                    {item.details.map((detail) => (
+                    {item.details.map((text) => (
                       <p
-                        key={detail}
-                        className="text-gray-400 leading-7 break-words"
+                        key={text}
+                        className="leading-7 text-slate-600"
                       >
-                        {detail}
+                        {text}
                       </p>
                     ))}
 
                   </div>
 
-                  {item.action && (
-                    <div className="mt-8">
-                      <span
-                        className="
-                          inline-flex
-                          items-center
-                          rounded-full
-                          bg-yellow-400
-                          px-5
-                          py-2.5
-                          text-black
-                          font-semibold
-                          transition
-                          group-hover:bg-yellow-300
-                        "
-                      >
-                        {item.action} →
-                      </span>
+                  {item.button && (
+
+                    <div className="mt-8 inline-flex items-center gap-2 font-semibold text-[#0E8F66]">
+
+                      {item.button}
+
+                      <ArrowRight
+                        size={18}
+                        className="transition group-hover:translate-x-2"
+                      />
+
                     </div>
+
                   )}
+
                 </div>
               );
 
@@ -130,22 +123,22 @@ export default function Contact() {
                 <a
                   key={item.title}
                   href={item.link}
-                  target={item.title.includes("WhatsApp") ? "_blank" : "_self"}
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {card}
+                  {Card}
                 </a>
               ) : (
-                <div key={item.title}>
-                  {card}
-                </div>
+                <div key={item.title}>{Card}</div>
               );
             })}
 
           </div>
 
         </div>
+
       </Reveal>
+
     </section>
   );
 }

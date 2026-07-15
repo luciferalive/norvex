@@ -1,47 +1,40 @@
-import { Inter } from "next/font/google";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
-
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import ScrollProgress from "@/components/ScrollProgress";
 
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ScrollProgress from "@/components/ScrollProgress";
+import CustomCursor from "@/components/CustomCursor";
 
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://norvex-tawny.vercel.app"),
 
   title: {
-    default: "NORVEX | Global Procurement & Industrial Solutions",
+    default: "NORVEX | Global Procurement & Strategic Sourcing",
     template: "%s | NORVEX",
   },
 
   description:
-    "NORVEX provides global procurement, OEM sourcing, industrial supplies, MRO products, and project procurement solutions for businesses worldwide.",
+    "NORVEX is a global procurement and strategic sourcing company delivering OEM products, industrial supplies, MRO materials, engineering equipment and end-to-end procurement solutions worldwide.",
 
   keywords: [
-    "Global Procurement",
-    "Industrial Procurement",
-    "OEM Sourcing",
-    "MRO Supplies",
-    "Industrial Equipment",
-    "Supply Chain",
-    "Engineering Products",
     "NORVEX",
+    "Global Procurement",
+    "Strategic Sourcing",
+    "Industrial Procurement",
+    "OEM Suppliers",
+    "MRO Procurement",
+    "Supply Chain",
+    "Engineering Equipment",
+    "Industrial Solutions",
+    "Worldwide Procurement",
   ],
 
   authors: [{ name: "NORVEX" }],
@@ -49,13 +42,13 @@ export const metadata: Metadata = {
   publisher: "NORVEX",
 
   openGraph: {
-    title: "NORVEX | Global Procurement & Industrial Solutions",
+    title: "NORVEX | Global Procurement & Strategic Sourcing",
     description:
-      "Your trusted partner for global sourcing, industrial procurement, OEM sourcing, and supply chain solutions.",
+      "Delivering world-class procurement, sourcing and industrial supply solutions across Oil & Gas, Aviation, Marine, Manufacturing and Infrastructure.",
     url: "https://norvex-tawny.vercel.app",
     siteName: "NORVEX",
-    type: "website",
     locale: "en_US",
+    type: "website",
     images: [
       {
         url: "/og-image.jpg",
@@ -68,9 +61,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "NORVEX | Global Procurement & Industrial Solutions",
+    title: "NORVEX | Global Procurement & Strategic Sourcing",
     description:
-      "Global Procurement, OEM Sourcing & Industrial Supply Solutions.",
+      "Worldwide Procurement • OEM Sourcing • Industrial Supply Solutions",
     images: ["/og-image.jpg"],
   },
 
@@ -82,23 +75,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className={inter.className}>
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.className} bg-white text-slate-900 antialiased`}>
+        <CustomCursor />
+
         <ScrollProgress />
 
         {children}
 
         <FloatingWhatsApp />
-      </body>
 
-      <GoogleAnalytics gaId="G-09NRSW5782" />
+        <GoogleAnalytics gaId="G-09NRSW5782" />
+      </body>
     </html>
   );
 }
